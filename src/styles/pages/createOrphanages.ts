@@ -82,15 +82,6 @@ export const Form = styled.form`
     line-height: 28px;
   }
 
-  .input-block .new-image {
-    width: 100%;
-    height: 64px;
-    background: #f5f8fa;
-    border: 1px dashed #96d2f0;
-    border-radius: 20px;
-    cursor: pointer;
-  }
-
   .input-block .button-select {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -144,5 +135,36 @@ export const Form = styled.form`
 
   button.confirm-button:hover {
     background: #36cf82;
+  }
+`;
+
+export const ImagesContainer = styled.div`
+  .images-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 16px;
+
+    img {
+      width: 100%;
+      height: 96px;
+
+      object-fit: cover;
+      border-radius: 20px;
+    }
+  }
+
+  .new-image {
+    height: 96px;
+    background: #f5f8fa;
+    border: 1px dashed #96d2f0;
+    border-radius: 20px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  input[type='file'] {
+    display: none;
   }
 `;
