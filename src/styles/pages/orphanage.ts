@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -109,37 +109,6 @@ export const OrphanageDetailsContent = styled.div`
     color: #4d6f80;
   }
 
-  .open-details {
-    margin-top: 24px;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
-  }
-
-  .open-details div {
-    padding: 32px 24px;
-    border-radius: 20px;
-    line-height: 28px;
-  }
-
-  .open-details div svg {
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  .open-details div.hour {
-    background: linear-gradient(149.97deg, #e6f7fb 8.13%, #ffffff 92.67%);
-    border: 1px solid #b3dae2;
-    color: #5c8599;
-  }
-
-  .open-details div.open-on-weekends {
-    background: linear-gradient(154.16deg, #edfff6 7.85%, #ffffff 91.03%);
-    border: 1px solid #a1e9c5;
-    color: #37c77f;
-  }
-
   button.contact-button {
     margin-top: 64px;
 
@@ -165,5 +134,57 @@ export const OrphanageDetailsContent = styled.div`
 
   button.contact-button:hover {
     background: #36cf82;
+  }
+`;
+
+interface IOpenDetailsProps {
+  openOnWeekends: boolean;
+}
+
+export const OpenDetails = styled.div<IOpenDetailsProps>`
+  margin-top: 24px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+
+  div {
+    padding: 32px 24px;
+    border-radius: 20px;
+    line-height: 28px;
+  }
+
+  div svg {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  div.hour {
+    background: linear-gradient(149.97deg, #e6f7fb 8.13%, #ffffff 92.67%);
+    border: 1px solid #b3dae2;
+    color: #5c8599;
+  }
+
+  div.open-on-weekends {
+    ${props =>
+      props.openOnWeekends
+        ? css`
+            background: linear-gradient(
+              154.16deg,
+              #edfff6 7.85%,
+              #ffffff 91.03%
+            );
+            border: 1px solid #a1e9c5;
+            color: #37c77f;
+          `
+        : css`
+            background: linear-gradient(
+              154.16deg,
+              #fdf0f5 7.85%,
+              #ffffff 91.03%
+            );
+            border: 1px solid #ffbcd4;
+            color: #ff669d;
+          `}
   }
 `;
